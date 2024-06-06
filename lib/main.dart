@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_challenge/widgets/currency_card.dart';
 import 'package:ui_challenge/widgets/mybutton.dart';
 
 void main() {
@@ -94,69 +95,29 @@ class UiChallengeApp extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            Container(
-              clipBehavior: Clip.hardEdge,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.elliptical(40, 40),
-                  bottomLeft: Radius.elliptical(40, 40),
-                  bottomRight: Radius.circular(20),
-                ),
-                color: Color(0xFF181818),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(24),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          "Euro",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            const Text(
-                              "6 428",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            Text(
-                              "EUR",
-                              style: TextStyle(
-                                color: Colors.white.withOpacity(0.8),
-                                fontSize: 12,
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                    Transform.scale(
-                        scale: 2.2,
-                        child: Transform.translate(
-                          offset: const Offset(-5, 15),
-                          child: const Icon(
-                            Icons.euro_symbol,
-                            color: Colors.white,
-                            size: 80,
-                          ),
-                        )),
-                  ],
-                ),
-              ),
+            const CurrencyCard(
+                currency: "Euro",
+                amount: "6 428",
+                symbol: "EUR",
+                icon: Icons.euro_symbol,
+                isInverted: false),
+            Transform.translate(
+              offset: const Offset(0, -25),
+              child: const CurrencyCard(
+                  currency: "Dollar",
+                  amount: "55 622",
+                  symbol: "USD",
+                  icon: Icons.attach_money_outlined,
+                  isInverted: true),
+            ),
+            Transform.translate(
+              offset: const Offset(0, -50),
+              child: const CurrencyCard(
+                  currency: "Rupee",
+                  amount: "28 981",
+                  symbol: "INR",
+                  icon: Icons.currency_rupee_sharp,
+                  isInverted: false),
             ),
           ]),
         ),
