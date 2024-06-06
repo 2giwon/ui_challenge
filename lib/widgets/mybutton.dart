@@ -16,7 +16,7 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(
-        horizontal: 60,
+        horizontal: 40,
         vertical: 20,
       ),
       decoration: BoxDecoration(
